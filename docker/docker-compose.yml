@@ -3,11 +3,11 @@ services:
   todotests:
     build: tests/
     depends_on:
-      - frontend
-      - backend
+      - todofront
+      - todoback
     environment:
       - FRONT_HOST=front-end
-    restart: on-failure
+    # restart: on-failure
   todofront:
     build: front-end/
     ports:
@@ -16,9 +16,9 @@ services:
       - backend
     environment:
       - REACT_APP_API_HOST=backend
-    restart: on-failure
+    # restart: on-failure
   todoback:
     build: back-end/
     ports:
       - 3001:3001
-    restart: on-failure
+    # restart: on-failure
